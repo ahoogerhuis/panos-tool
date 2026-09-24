@@ -55,6 +55,15 @@ Runs against multiple devices with a comma-separated list or a `.devices` file:
 ./panos-tool.py --list-downloaded-versions --all-devices
 ```
 
+Clean up old firmware in bulk:
+
+```bash
+./panos-tool.py firewall.example.com --delete-lt-version 11.2.13-h2 -u admin
+./panos-tool.py firewall.example.com --delete-wc-version "11.2.7*" -u admin
+```
+
+The first deletes every downloaded version older than 11.2.13-h2, the second every version matching `11.2.7*`. The running version and base versions still needed by other downloads are skipped.
+
 ## Security notes
 
 - API keys are sent via `X-PAN-KEY` header, not URL query parameters
