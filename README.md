@@ -27,7 +27,20 @@ No Panorama support — written for environments with individual firewalls manag
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
+```
 
+Authenticate with `-u`. Fetch an API key once (you're prompted for the password), then reuse it:
+
+```bash
+./panos-tool.py firewall.example.com --fetch-key -u admin
+./panos-tool.py firewall.example.com --list-downloaded-versions -u admin
+```
+
+The key is stored per device and user in `.apikey-<hostname>-<user>` and used automatically whenever you pass the same `-u`, until it expires or is revoked. No password is kept on disk.
+
+Or put credentials in `.env` and leave off `-u`:
+
+```bash
 cp .env.sample .env
 chmod 600 .env
 # Edit .env — set PANOS_USERNAME and PANOS_PASSWORD
