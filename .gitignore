@@ -1,0 +1,36 @@
+# Environment variables - never commit credentials
+.env
+
+# Device inventory - may contain sensitive hostnames/IPs
+.devices
+
+# Stored per-device API keys
+.apikey-*
+
+# Debug log - may contain sensitive SSH dialogue
+debug.log
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+
+# Virtual environments
+.venv/
+.venv*/
+venv/
+venv*/
+env/
+env*/
+ENV/
+pip-selfcheck.json
+pyvenv.cfg
+
+# OS
+.DS_Store
+Thumbs.db
